@@ -1,0 +1,14 @@
+class Singleton:
+    _instance = None
+
+    def __new__(singleton):
+        if not singleton._instance:
+            singleton._instance = super().__new__(singleton)
+        return singleton._instance
+
+
+
+obiekt1 = Singleton()
+obiekt2 = Singleton()
+
+print(obiekt1 is obiekt2)
