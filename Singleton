@@ -12,3 +12,99 @@ obiekt1 = Singleton()
 obiekt2 = Singleton()
 
 print(obiekt1 is obiekt2)
+from math import sqrt
+
+# Klasa reprezentująca okrąg
+class Circle:
+    def __init__(self, radius):
+        self.radius = radius
+    
+    def get_radius(self):
+        return self.radius
+
+# Klasa reprezentująca kwadrat
+class Square:
+    def __init__(self, side):
+        self.side = side
+    
+    def get_side(self):
+        return self.side
+
+# Klasa adaptera
+class CircleAdapter:
+    def __init__(self, square):
+        self.square = square
+    
+    def get_radius(self):
+        diagonal = sqrt(2) * self.square.get_side()
+        radius = diagonal / 2
+        return radius
+
+# Użycie adaptera
+square = Square(4)  # Tworzenie obiektu kwadratu o boku równej 4
+adapter = CircleAdapter(square)  # Tworzenie adaptera na podstawie kwadratu
+circle = Circle(adapter.get_radius())  # Tworzenie obiektu okręgu na podstawie adaptera
+
+print("Promień okręgu:", circle.get_radius())  # Wyświetlanie promienia okręgu
+
+from queue import Queue
+
+
+
+def reverse_string(input_string):
+
+    queue = Queue()
+
+
+
+    for char in input_string:
+
+        queue.put(char)
+
+
+
+    reversed_string = ""
+
+    while not queue.empty():
+
+        reversed_string += queue.get()
+
+
+
+    return reversed_string
+
+
+
+# Przykładowe użycie
+
+input_string = "Hello, World!"
+
+reversed_string = reverse_string(input_string)
+
+print("Input string:", input_string)
+
+print("Reversed string:", reversed_string)
+
+def reverse_string(input_string):
+
+    stack = list(input_string)
+
+    reversed_string = ""
+
+    while stack:
+
+        reversed_string += stack.pop()
+
+    return reversed_string
+
+
+
+# Przykładowe użycie
+
+input_string = "Hello, World!"
+
+reversed_string = reverse_string(input_string)
+
+print("Input string:", input_string)
+
+print("Reversed string:", reversed_string)
